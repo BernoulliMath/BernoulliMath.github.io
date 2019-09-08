@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "lordomega.io.bernoullimath",
+    "sha256_cert_fingerprints":
+    ["2D:03:64:3A:F5:CC:BA:B2:57:EE:D2:C9:D8:A7:6E:D6:20:93:EB:37:41:14:B6:7B:68:94:3F:89:10:41:2F:DB"]
+  }
+}]

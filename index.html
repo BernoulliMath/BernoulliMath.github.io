@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bernoulli Math</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="pwa/logo-48x48.png" sizes="48x48">
+    <link rel="icon" type="image/png" href="pwa/logo-72x72.png" sizes="72x72">
+    <link rel="icon" type="image/png" href="pwa/logo-144x144.png" sizes="144x144">
+    <link rel="icon" type="image/png" href="pwa/logo-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="pwa/logo-512x512.png" sizes="512x512">
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="rgb(16,121,236)">
+    <meta name="color-scheme" value="light dark">
+    <meta name="description" content="Calculator for Bernoulli excercices"/>
+    <meta property="og:title" content="Bernoulli Math"/>
+    <meta property="og:description" content="Calculator for Bernoulli excercices"/>
+    <meta property="og:url" content="https://bernoullimath.github.io"/>
+    <meta property="og:image" content="https://bernoullimath.github.io/pwa/logo-512x512.png"/>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div id="toolbar">
+      <p id="toolbar_title">Bernoulli Math</p>
+      <img src="share.svg" id="toolbar_share" alt="share button" onclick="shareAction();"></img>
+    </div>
+    <div id="content">
+      <div class="form">
+        <form>
+          <input type="number" id="r" min="0" placeholder="r" pattern="\d+" onchange="run()">
+          <input type="number" id="a" min="0" placeholder="a" pattern="\d+" onchange="run()" style="display: none;">
+          <input type="number" id="b" min="0" placeholder="b" pattern="\d+" onchange="run()" style="display: none;">
+          <input type="number" id="c" min="0" placeholder="c" pattern="\d+" onchange="run()" style="display: none;">
+          <input type="number" id="n" min="1" placeholder="n" pattern="\d+" onchange="run()">
+          <input type="number" id="p" min="0" max="1" step="0.1" placeholder="p" pattern="\d+" onchange="run()">
+          <p class="out" id="err"></p>
+          <select id="op" onchange="run()">
+            <option value="equal_to">equal to =</option>
+            <option value="not_equal_to">not equal to &ne;</option>
+            <option value="less_than">less than <</option>
+            <option value="greater_than">greater than ></option>
+            <option value="less_than_or_equal_to">less than or equal to &le;</option>
+            <option value="greater_than_or_equal_to">greater than or equal to &ge;</option>
+            <option value="a_less_than_X_less_than_b">a < X < b</option>
+            <option value="a_less_than_or_equal_to_X_less_than_or_equal_to_b">a &le; X &le; b</option>
+            <option value="X_less_than_a_or_X_greater_than_b">X < a or X > b</option>
+            <option value="X_less_than_or_equal_to_a_or_X_greater_than_or_equal_to_b">X &le; a or X &ge; b</option>
+          </select>
+        </form>
+      </div>
+      <div class="line"></div>
+      <div class="form">
+        <p class="out_title" id="given">Given:</p>
+        <p class="out" id="def">...</p>
+        <p class="out_title" id="calculation">Calculation:</p>
+        <p class="out" id="out">...</p>
+      </div>
+    </div>
+    <script async>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('./sw.js').then(function(registration) {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }).catch(function(err) {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

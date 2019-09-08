@@ -1,0 +1,181 @@
+:root {
+    color-scheme: light dark;
+    --theme-font-family: Arial, Monospace, Helvetica, sans-serif;
+    --theme-background-color: white;
+    --theme-text-color: black;
+    --theme-color: rgb(16,121,236);
+    --theme-box-shadow: 0px 4px 5px lightgrey;
+    --theme-box-border-radius: 0px;
+    --theme-box-border-bottom: 1px solid lightgrey;
+}
+
+body {
+    margin: 0px; 
+    padding: 0px; 
+    font-family: var(--theme-font-family);
+    background-color: var(--theme-background-color); 
+}
+
+#toolbar {
+    z-index: 3; 
+    top: 0px; 
+    height: 56px; 
+    width: 100%; 
+    box-shadow: var(--theme-box-shadow); 
+    background-color: var(--theme-background-color); 
+    position: fixed; 
+    display: none;
+}
+
+#toolbar_title {
+    line-height: 56px; 
+    float: left; 
+    padding-left: 16px; 
+    font-size: 20px; 
+    margin: 0px; 
+    color: var(--theme-color);
+}
+
+#toolbar_share {
+    width: 24px; 
+    height: 24px; 
+    padding: 16px; 
+    float: right; 
+    display: none;
+}
+
+#content {
+    top: 68px; 
+    position: relative; 
+    z-index: 1; 
+    width: 100%; 
+    margin: 0px;
+}
+
+.out {
+    padding: 0px 0px 0px 10px;
+}
+
+.out_title {
+    padding: 0px 5px 0px 0px;
+    text-decoration: underline;
+}
+
+.out, .out_title {
+    color: var(--theme-text-color);
+}
+
+.line {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    padding-bottom: 12px;
+    box-shadow: var(--theme-box-shadow);
+}
+
+.form {
+    width: calc(100% - 60px);
+    padding: 30px;
+    background-color: var(--theme-background-color);
+    padding-top: 30px;
+    border-radius: var(--theme-box-border-radius);
+    box-shadow: none;
+}
+
+.form input[type="text"], .form input[type="number"], .form select {
+    color: var(--theme-text-color);
+    box-sizing: border-box;
+    box-shadow: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: var(--theme-box-border-bottom);
+    background: transparent;
+    margin-bottom: 10px;
+    font-family: var(--theme-font-family);
+    font-size: 16px;
+    height: 45px;
+}
+
+.form input[type="text"]:focus, .form input[type="number"]:focus{
+    color: var(--theme-text-color);
+    border-bottom-color: var(--theme-color) !important;
+}
+
+select, select option {
+    color: var(--theme-text-color);
+    background-color: var(--theme-background-color);
+    font-family: var(--theme-font-family);
+}
+
+#err {
+    color: red; 
+    display: none;
+}
+
+#op {
+    width: 100%; 
+    text-align-last: center;
+}
+
+@media only screen and (min-width: 800px) {
+    .line {
+        position: relative;
+        z-index: 2;
+        width: 0px;
+    }
+
+    #content {
+        width: 800px !important;
+        margin-left: calc(50vw - 400px) !important;
+        margin-right: calc(50vw - 400px) !important;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --theme-box-border-radius: 5px;
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --theme-background-color: #121212;
+        --theme-text-color: rgba(255, 255, 255, 0.75);
+        --theme-color: rgb(16,121,236);
+        --theme-box-shadow: 0px 0px 3px black;
+        --theme-box-border-bottom: 1px solid rgb(159, 159, 159);
+    }
+
+    #toolbar {
+        background-color: rgba(255, 255, 255, 0.05);
+        box-shadow: var(--theme-box-shadow);
+    }
+
+    .form {
+        background-color: rgba(255, 255, 255, 0.05);
+        box-shadow: var(--theme-box-shadow);
+    }
+
+    .form input[type="text"], .form input[type="number"], .form select {
+        border-bottom: var(--theme-box-border-bottom);
+    }
+
+    select option {
+        background-color: rgb(30, 30, 30);
+    }
+
+    .line {
+        box-shadow: none;
+    }
+
+    #err {
+        color: rgba(255, 0, 0, 0.75) !important;
+    }
+}

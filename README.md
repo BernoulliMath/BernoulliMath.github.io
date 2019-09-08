@@ -1,1 +1,1 @@
-# BernoulliMath.github.io
+# BernoulliMath
